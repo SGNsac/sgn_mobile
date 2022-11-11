@@ -14,6 +14,7 @@ const MovDiariaDetalhe: React.FC = ({ route }: any) => {
   const [loading, setLoading] = useState(false)
 
   const dates = new Date(route.params.data)
+
   useEffect(() => {
     let data: any
     setDate(route.params.data)
@@ -24,19 +25,16 @@ const MovDiariaDetalhe: React.FC = ({ route }: any) => {
     month < 10 ? month = '0' + (dates.getMonth() + 1) : month = (dates.getMonth() + 1)
 
     setDateFormat(data + ' / ' + month + ' / ' + dates.getFullYear())
-
+    console.log(1)
     api.get(`usuario/movimentoDiario/${login}/${date}`)
       .then(
         (resp) => {
           setResponse(resp.data.message)
           setLoading(true)
-          console.log(`usuario/movimentoDiario/${login}/${dates.getFullYear() + '-' + dates.getMonth() + '-' + dates.getDate()}`)
         }
       )
       .catch(erro => console.log(erro))
-  }, [])
-
-  console.log(dates)
+  }, [date])
 
   return (
     <View style={styles.container}>

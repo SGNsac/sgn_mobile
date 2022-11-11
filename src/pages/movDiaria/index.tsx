@@ -15,7 +15,7 @@ const MovDiaria: React.FC = () => {
         alert(err.message)
         console.log(err)
       })
-  }, [])
+  })
 
   return (
     <View>
