@@ -25,7 +25,6 @@ const MovDiariaDetalhe: React.FC = ({ route }: any) => {
     month < 10 ? month = '0' + (dates.getMonth() + 1) : month = (dates.getMonth() + 1)
 
     setDateFormat(data + ' / ' + month + ' / ' + dates.getFullYear())
-    console.log(1)
     api.get(`usuario/movimentoDiario/${login}/${date}`)
       .then(
         (resp) => {
