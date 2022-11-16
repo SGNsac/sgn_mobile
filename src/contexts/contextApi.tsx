@@ -6,10 +6,12 @@ interface IAuthContext {
   token:string,
   modal:boolean,
   setModal:any,
-  pageGerencial:string,
-  setPageGerencial:any,
   login:string,
   setLogin:any,
+  usuaCod:string,
+  setUsuaCod:any,
+  page:string,
+  setPage:any
 }
 
 interface IProvider {
@@ -21,7 +23,8 @@ export const AuthContext = createContext<IAuthContext>({} as IAuthContext)
 export const AuthContextProvider : React.FC<IProvider> = ({ children }) => {
   const [modal, setModal] = useState(false)
   const [login, setLogin] = useState('')
-  const [pageGerencial, setPageGerencial] = useState('GerencialHome')
+  const [page, setPage] = useState('GerencialHome')
+  const [usuaCod, setUsuaCod] = useState('')
 
   return (
 
@@ -34,10 +37,12 @@ export const AuthContextProvider : React.FC<IProvider> = ({ children }) => {
               token: '',
               modal,
               setModal,
-              pageGerencial,
-              setPageGerencial,
+              page,
               login,
-              setLogin
+              setLogin,
+              usuaCod,
+              setUsuaCod,
+              setPage
             }
 
         }

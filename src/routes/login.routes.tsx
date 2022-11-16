@@ -3,6 +3,7 @@ import Login from '../pages/login'
 import Bancario from './bancario.routes'
 import SignUp from '../pages/signUp'
 import Home from '../pages/home'
+import Estoque from './estoque.routes'
 import SplashScreen from '../pages/splashScreen'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -58,6 +59,16 @@ const AuthRoutesHome = () => (
             name="Bancario"
 
             component={Bancario}
+
+            options={{ headerShown: false }}
+
+        />
+
+        <AuthStack.Screen
+
+            name="Estoque"
+
+            component={Estoque}
 
             options={{ headerShown: false }}
 

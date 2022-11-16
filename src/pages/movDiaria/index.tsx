@@ -6,16 +6,17 @@ import CardMovimentacao from '../../components/cardMovimentacao'
 const MovDiaria: React.FC = () => {
   const { login } = useContext(AuthContext)
   const [response, setResponse] = useState([])
+  const [dados, setDados] = useState([])
   useEffect(() => {
     api.get(`usuario/movimentoDiario/${login}`)
       .then((json) => {
         setResponse(json.data.message)
+        console.log(`usuario/movimentoDiario/${login}`)
       })
       .catch((err) => {
         alert(err.message)
-        console.log(err)
       })
-  })
+  }, [dados])
 
   return (
     <View>

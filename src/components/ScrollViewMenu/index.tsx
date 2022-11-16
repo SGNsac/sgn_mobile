@@ -8,7 +8,7 @@ import { AuthContext } from '../../contexts/contextApi'
 import { useNavigation } from '@react-navigation/native'
 
 const ScrollViewMenu : React.FC = () => {
-  const { setPageGerencial } = useContext(AuthContext)
+  const { setPage } = useContext(AuthContext)
 
   const navigation = useNavigation()
 
@@ -61,7 +61,7 @@ const ScrollViewMenu : React.FC = () => {
             text={'Bancario'}
 
             onPress={() => {
-              setPageGerencial('GerencialHome')
+              setPage('GerencialHome')
               navigation.navigate('Bancario')
             }}
 
@@ -114,7 +114,13 @@ const ScrollViewMenu : React.FC = () => {
 
             image={require('../../assets/img/modulos_novos/estoque.png')}
 
-            text={'Estoque'} onPress={undefined}
+            text={'Estoque'}
+
+            onPress={() => {
+              setPage('EstoqueHome')
+              navigation.navigate('Estoque')
+            }}
+
           />
 
           <MenuButtons

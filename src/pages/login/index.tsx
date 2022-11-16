@@ -14,11 +14,19 @@ interface Inavigation{
 
 const Login : React.FC<Inavigation> = ({ navigation } : Inavigation) => {
   const [user, setUser] = useState('')
-  const { setLogin } = useContext(AuthContext)
+  const {
+    setLogin,
+    setUsuaCod,
+    usuaCod
+  } = useContext(AuthContext)
 
   const [password, setPassword] = useState('')
 
   const login = () => {
+    if (user === '' || password === '') {
+      alert('Preencha todos os campos')
+      return
+    }
     api.post('usuario/login',
       {
 
@@ -30,8 +38,9 @@ const Login : React.FC<Inavigation> = ({ navigation } : Inavigation) => {
 
       .then(
 
-        () => {
+        (response) => {
           setLogin(user)
+          setUsuaCod(response.data.userCod)
           navigation.navigate('Home')
         }
 
@@ -51,6 +60,8 @@ const Login : React.FC<Inavigation> = ({ navigation } : Inavigation) => {
 
       )
   }
+
+  console.log(usuaCod)
 
   return (
 

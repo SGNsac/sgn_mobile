@@ -7,14 +7,14 @@ import { AuthContext } from '../../../contexts/contextApi'
 const itemImage = ({ item } : any) => {
   const screen = Dimensions.get('screen')
 
-  const { setPageGerencial } = useContext(AuthContext)
+  const { setPage } = useContext(AuthContext)
 
   const width = (screen.width / 100) * 80
 
   const navigation = useNavigation()
 
   const attPage = () => {
-    setPageGerencial(item.page)
+    setPage(item.page)
   }
 
   return (

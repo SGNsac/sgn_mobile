@@ -1,15 +1,13 @@
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
-import MovDiaria from './movDiaria.routes'
-import GerencialHome from '../pages/bancarioHome'
-import { TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
 import { useContext } from 'react'
 import { AuthContext } from '../contexts/contextApi'
+import EstoqueHome from '../pages/EstoqueHome'
+import Pedidos from '../pages/pedidos'
 const Drawer = createDrawerNavigator()
 
 const Navigator = () => {
-  const { modal, setModal, page } = useContext(AuthContext)
+  const { page } = useContext(AuthContext)
 
   return (
 
@@ -23,13 +21,13 @@ const Navigator = () => {
 
         <Drawer.Screen
 
-          name='Gerencial'
+          name='Estoque'
 
-          component={GerencialHome}
+          component={EstoqueHome}
 
           options={{
             headerTitleAlign: 'center',
-            headerTitle: 'Bancário',
+            headerTitle: 'Estoque',
             headerTintColor: '#3474A4',
             headerTitleStyle: {
               fontWeight: 'bold'
@@ -44,27 +42,13 @@ const Navigator = () => {
 
         <Drawer.Screen
 
-          name="MovimentacaoDiaria"
+          name="Pedidos"
 
-          component={MovDiaria}
+          component={Pedidos}
 
           options={{
-            headerRight: () => (
-              <TouchableOpacity
-                onPress={() => {
-                  modal === false ? setModal(true) : setModal(false)
-                }}
-              >
-                <Icon
-                  name='filter'
-                  size={20}
-                  color='#3474A4'
-                  style={{ marginRight: 20 }}
-                />
-              </TouchableOpacity>
-            ),
             headerTitleAlign: 'center',
-            headerTitle: 'Movimentação diária',
+            headerTitle: 'Estoque',
             headerTintColor: '#3474A4',
             headerTitleStyle: {
               fontWeight: 'bold'
@@ -72,6 +56,7 @@ const Navigator = () => {
             headerStyle: {
               borderBottomColor: '#3474A4',
               borderBottomWidth: 1
+
             }
           }}
 
