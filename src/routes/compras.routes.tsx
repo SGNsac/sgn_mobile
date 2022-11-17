@@ -2,7 +2,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
 import { useContext } from 'react'
 import { AuthContext } from '../contexts/contextApi'
+import ComprasHome from '../pages/comprasHome'
 import EstoqueHome from '../pages/estoqueHome'
+import Pedidos from './pedido.routes'
 const Drawer = createDrawerNavigator()
 
 const Navigator = () => {
@@ -20,13 +22,13 @@ const Navigator = () => {
 
         <Drawer.Screen
 
-          name='Estoque'
+          name='Compras'
 
-          component={EstoqueHome}
+          component={ComprasHome}
 
           options={{
             headerTitleAlign: 'center',
-            headerTitle: 'Estoque',
+            headerTitle: 'Compras',
             headerTintColor: '#3474A4',
             headerTitleStyle: {
               fontWeight: 'bold'
@@ -37,6 +39,28 @@ const Navigator = () => {
 
             }
           }}
+        />
+
+        <Drawer.Screen
+
+          name="Pedidos"
+
+          component={Pedidos}
+
+          options={{
+            headerTitleAlign: 'center',
+            headerTitle: 'Pedidos',
+            headerTintColor: '#3474A4',
+            headerTitleStyle: {
+              fontWeight: 'bold'
+            },
+            headerStyle: {
+              borderBottomColor: '#3474A4',
+              borderBottomWidth: 1
+
+            }
+          }}
+
         />
 
       </Drawer.Navigator>

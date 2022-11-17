@@ -22,7 +22,7 @@ const FlatListImage : React.FC = ({ navigation }:any) => {
       message: 'Aprove pedidos',
       path: require('C:/Users/Reinaldo/Documents/sgn_mobile/src/assets/img/movimentacao.jpg'),
       page: 'Pedidos',
-      modulo: 'Estoque'
+      modulo: 'Compras'
     },
     {
       id: 3,

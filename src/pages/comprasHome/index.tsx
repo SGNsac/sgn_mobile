@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import React from 'react'
 
-const EstoqueHome : React.FC = () => {
+const ComprasHome : React.FC = () => {
   return (
     <View>
 
@@ -9,4 +9,4 @@ const EstoqueHome : React.FC = () => {
   )
 }
 
-export default EstoqueHome
+export default ComprasHome
