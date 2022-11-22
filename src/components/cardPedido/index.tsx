@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, View } from 'react-native'
 import React from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
+import changeReal from '../../utils/chanceReal'
 
 interface props{
   datas:any
@@ -26,18 +27,12 @@ const CardPedido : React.FC<props> = ({ datas }: props) => {
 
   fornecedor.length > 18 ? fornecedorFormated = fornecedor.slice(0, 18) + '...' : fornecedorFormated = fornecedor
 
-  const value = datas.item.PEDI_VALOR_TOTAL
-
-  let formatValue
-
-  value == null ? formatValue = 0 : formatValue = parseInt(value)
-
   return (
 
     <TouchableOpacity
       style={styles.card}
       onPress={() => {
-        navigation.navigate('PedidoDetalhe', { id: datas.item.PEDI_COD })
+        navigation.navigate('DetalhePedido', { dados: datas.item })
       }}
     >
 
@@ -51,7 +46,7 @@ const CardPedido : React.FC<props> = ({ datas }: props) => {
 
       <View style={styles.cardTextArea}>
         <Text style={styles.cardTextTitle}>Valor : </Text>
-        <Text style={styles.cardTextBody}>{formatValue.toFixed(2)}</Text>
+        <Text style={styles.cardTextBody}>{changeReal(datas.item.PEDI_VALOR_TOTAL)}</Text>
       </View>
 
       <View style={styles.cardTextArea}>

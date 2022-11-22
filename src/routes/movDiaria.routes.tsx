@@ -6,10 +6,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 const Stack = createStackNavigator()
 
-interface props{
-    data: any
-}
-
 const AuthRoutesHome = () => (
 
     <Stack.Navigator>

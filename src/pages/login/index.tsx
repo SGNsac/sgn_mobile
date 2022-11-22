@@ -16,8 +16,7 @@ const Login : React.FC<Inavigation> = ({ navigation } : Inavigation) => {
   const [user, setUser] = useState('')
   const {
     setLogin,
-    setUsuaCod,
-    usuaCod
+    setUsuaCod
   } = useContext(AuthContext)
 
   const [password, setPassword] = useState('')
@@ -60,8 +59,6 @@ const Login : React.FC<Inavigation> = ({ navigation } : Inavigation) => {
 
       )
   }
-
-  console.log(usuaCod)
 
   return (
 

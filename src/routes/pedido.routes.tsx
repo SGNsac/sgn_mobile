@@ -1,13 +1,9 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Pedido from '../pages/pedidos'
-import PedidoDetalhe from '../pages/detalhePedido'
+import DetalhePedido from '../pages/detalhePedido'
 
 const Stack = createStackNavigator()
-
-interface props{
-    id: any
-}
 
 const AuthRoutesHome = () => (
 
@@ -24,11 +20,9 @@ const AuthRoutesHome = () => (
 
         <Stack.Screen
 
-            name="PedidoDetalhe"
+            name="DetalhePedido"
 
-            component={PedidoDetalhe}
-
-            initialParams={{ id: '' }}
+            component={DetalhePedido}
 
             options={{ headerShown: false }}
 
