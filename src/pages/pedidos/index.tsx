@@ -64,11 +64,12 @@ const Pedidos: React.FC = () => {
       .then((json) => {
         setResponse(json.data.message)
         setLoading(true)
+        console.log(`pedido/${usuaCod}`)
       })
       .catch((err) => {
         alert(err.message)
       })
-  }, [])
+  }, [dados])
 
   console.log(inputNum)
 

@@ -9,6 +9,7 @@ import HeaderPedido from '../../components/headerPedido'
 const DetalhePedido: React.FC = ({ route }: any) => {
   const { dados } = route.params
   const pediCod = dados.PEDI_COD
+  const ass = dados.ASS
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -24,6 +25,16 @@ const DetalhePedido: React.FC = ({ route }: any) => {
         })
     }, [])
 
+  const aprovarPedido = () => {
+    api.put(`pedido/${ass}/${pediCod}`)
+      .then((response) => {
+        alert('Pedido atualizado')
+      })
+      .catch((error) => {
+        alert(error)
+      })
+  }
+
   return (
     <View
       style={{ height: '100%', backgroundColor: '#FFF' }}
@@ -31,7 +42,7 @@ const DetalhePedido: React.FC = ({ route }: any) => {
       {loading === false ? <ActivityIndicator/> : ''}
       <Button
         functionOnpress={() => {
-          alert('Aprovado')
+          aprovarPedido()
         }}
         textButton={'Aprove pedidos'}
       />
